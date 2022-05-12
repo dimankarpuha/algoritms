@@ -22,7 +22,7 @@ def bubble_v1(array):
     count = 0
     for i in range(len(array)):
         for j in range(len(array)-i-1):
-            if array[j] > array[j + 1]:
+            if array[j] < array[j + 1]:
                 array[j], array[j + 1] = array[j + 1], array[j]
             count += 1
         count += 1
@@ -33,7 +33,7 @@ def bubble_v2(array):
     for i in range(len(array)):
         not_sorted = True
         for j in range(len(array)-i-1):
-            if array[j] > array[j + 1]:
+            if array[j] < array[j + 1]:
                 array[j], array[j + 1] = array[j + 1], array[j]
                 not_sorted = False
             count += 1
@@ -55,10 +55,10 @@ print('Кол-во проходов v2:', bubble_v2(array_2))
 print('Отсортированый массив по v2', array_2)
 
 # делаем массив наполовину отсортированым
-array = [n for n in range(-100, 100)]
+array = [n for n in range(100, -100, -1)]
 first_part_array = array[:len(array)//2]
 second_part_array = array[len(array)//2:]
-random.shuffle(first_part_array)
+random.shuffle(second_part_array)
 first_part_array.extend(second_part_array)
 array_copy = first_part_array.copy()
 
